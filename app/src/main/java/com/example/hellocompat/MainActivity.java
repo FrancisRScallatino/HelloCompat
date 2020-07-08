@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
     private TextView mHelloTextView;
     private String[] mColorArray = {"red", "pink", "purple", "deep_purple",
@@ -27,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void changeColor(View view) {
+        Random random = new Random();
+        String colorName = mColorArray[random.nextInt(20)];
+        int colorResourceName = getResources().getIdentifier(colorName, "color", getApplicationContext().getOpPackageName());
     }
 
     @Override
