@@ -2,6 +2,7 @@ package com.example.hellocompat;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.os.Bundle;
 import android.view.View;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         Random random = new Random();
         String colorName = mColorArray[random.nextInt(20)];
         int colorResourceName = getResources().getIdentifier(colorName, "color", getApplicationContext().getOpPackageName());
+        int colorRes = ContextCompat.getColor(this, colorResourceName);
+        mHelloTextView.setTextColor(colorRes);
     }
 
     @Override
